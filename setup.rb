@@ -84,6 +84,7 @@ def install
     exec("pacman -Sy fish")
     exec("chsh -s /usr/bin/fish")
     exec("curl -L https://github.com/oh-my-fish/oh-my-fish/raw/master/tools/install.fish | fish")
+    exec("echo \"exec fish\" > ~/.bashrc")
   else
     exec("pacman -Sy zsh")
     exec("chsh -s /usr/bin/zsh")
@@ -128,6 +129,7 @@ def config
   exec("cp -R #{dotfile}/ranger /root/.config")
   l "Config termite"
   exec("cp -R #{dotfile}/termite ~/.config")
+  exec("cp #{dotfile}/bash_profile ~/.bach_profile)
 end
 #####
 
