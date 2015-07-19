@@ -66,8 +66,18 @@ def what_shell
 end
 
 def install
+  begin
+    what_wm
+  end while wm == "1" || wm == "2"
+
+  begin
+    what_shell
+  end while shell == "1" || shell == "2"
+
+
   l "Installing dependencies"
   exec("pacman -S --noconfirm python-pip python2-pip")
+
   if exec("which curl") != "/usr/bin/curl"
     exec("pacman -S --noconfirm curl")
   end
@@ -133,22 +143,20 @@ def config
 end
 #####
 
-i "This script will install [vim, nvim, i3wm or awesome wm, ranger fm, termite, qutebrowser]"
+def start
+  i "This script will install [vim, nvim, i3wm or awesome wm, ranger fm, termite, qutebrowser]"
+  q "Press (y) to Continue or (n) to exit"
+end
 
-q "Press Any Key to Continue or (n) to exit"
-
-exit if gets.chomp == "n"
+loop do
+  start
+  ok = gets.chomp
+  break if ok == "y"
+  exit if ok == "n"
+end
 
 l "Updating..."
 exec("pacman -Syu --noconfirm")
-
-begin
-  what_wm
-end while wm == "1" || wm == "2"
-
-begin
-  what_shell
-end while shell == "1" || shell == "2"
 
 install
 
