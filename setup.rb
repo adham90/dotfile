@@ -144,16 +144,14 @@ end
 #####
 
 def start
-  i "This script will install [vim, nvim, i3wm or awesome wm, ranger fm, termite, qutebrowser]"
-  q "Press (y) to Continue or (n) to exit"
 end
 
-loop do
-  start
+begin
+  i "This script will install [vim, nvim, i3wm or awesome wm, ranger fm, termite, qutebrowser]"
+  q "Press (y) to Continue or (n) to exit"
   ok = gets.chomp
-  break if ok == "y"
   exit if ok == "n"
-end
+end until ok == "y"
 
 l "Updating..."
 exec("pacman -Syu --noconfirm")
