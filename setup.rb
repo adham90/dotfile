@@ -149,7 +149,7 @@ end
 begin
   i "This script will install [vim, nvim, i3wm or awesome wm, ranger fm, termite, qutebrowser]"
   q "Press (y) to Continue or (n) to exit"
-  ok = gets.chomp
+  ok = gets.to_s.chomp
   exit if ok == "n"
 end until ok == "y"
 
