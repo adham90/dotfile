@@ -131,6 +131,8 @@ set winheight=5
 set winminheight=5
 set winwidth=84
 set foldlevel=99
+set paste
+let g:pymode_rope_lookup_project = 0
 " }}}
 
 " Autocommands {{{
