@@ -67,32 +67,32 @@ end
 
 def install
   l "Installing dependencies"
-  exec("pacman -Sy python-pip python2-pip")
+  exec("pacman -S --noconfirm python-pip python2-pip")
   if exec("which curl") != "/usr/bin/curl"
-    exec("pacman -Sy curl")
+    exec("pacman -S --noconfirm curl")
   end
 
   l "Installing the WM..."
   if wm == "1"
-    exec("pacman -Sy i3")
+    exec("pacman -S --noconfirm i3")
   else
-    exec("pacman -Sy awesome")
+    exec("pacman -S --noconfirm awesome")
   end
 
   l "Installing the shell..."
   if shell == "1"
-    exec("pacman -Sy fish")
+    exec("pacman -S --noconfirm fish")
     exec("chsh -s /usr/bin/fish")
     exec("curl -L https://github.com/oh-my-fish/oh-my-fish/raw/master/tools/install.fish | fish")
     exec("echo \"exec fish\" > ~/.bashrc")
   else
-    exec("pacman -Sy zsh")
+    exec("pacman -S --noconfirm zsh")
     exec("chsh -s /usr/bin/zsh")
     exec("curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh")
   end
 
   l "Install other software..."
-  exec("pacman -Sy vim ranger termite")
+  exec("pacman -S --noconfirm vim ranger termite")
   exec("yaourt -S --noconfirm neovim-git")
   exec("yaourt -S --noconfirm qutebrowser-git")
 end
@@ -140,7 +140,7 @@ q "Press Any Key to Continue or (n) to exit"
 exit if gets.chomp == "n"
 
 l "Updating..."
-exec("pacman -Syu")
+exec("pacman -Syu --noconfirm")
 
 begin
   what_wm
