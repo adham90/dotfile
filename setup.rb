@@ -129,7 +129,7 @@ def config
   exec("cp -R #{dotfile}/ranger /root/.config")
   l "Config termite"
   exec("cp -R #{dotfile}/termite ~/.config")
-  exec("cp #{dotfile}/bash_profile ~/.bach_profile)
+  exec("cp #{dotfile}/bash_profile ~/.bach_profile")
 end
 #####
 
