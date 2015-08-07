@@ -1,5 +1,11 @@
 set --erase fish_greeting
 
+
+set PATH $HOME/.rbenv/bin $PATH
+set PATH $HOME/.rbenv/shims $PATH
+set PATH $HOME/.rbenv/versions $PATH
+rbenv rehash >/dev/null ^&1
+
 # Path
 set --global --export PATH .                     $PATH
 set --global --export PATH $HOME/bin             $PATH
@@ -27,13 +33,11 @@ Theme 'l'
 Plugin 'theme'
 Plugin 'git-flow'
 Plugin 'rails'
-Plugin 'rvm'
 Plugin 'ssh'
 Plugin 'sublime'
 Plugin 'gem'
 Plugin 'fry'
 Plugin 'fish-spec'
-Plugin 'bundler'
 Plugin 'ccache'
 Plugin 'archlinux'
 Plugin 'jump'
@@ -43,7 +47,10 @@ Plugin 'gi'
 Plugin 'peco'
 Plugin 'msg'
 Plugin 'xdg'
+#Plugin 'rbenv'
 
-alias e="emacs -nw"
 alias v="vim"
 alias vi="vim ."
+alias code="cd /home/code"
+alias wi="sudo wifi-menu"
+alias w="mux start $0"
