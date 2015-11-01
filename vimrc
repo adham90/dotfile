@@ -84,21 +84,34 @@ Plugin 'nelstrom/vim-textobj-rubyblock'
 "A light and configurable statusline/tabline for Vim
 Plugin 'itchyny/lightline.vim'
 "Simple tmux statusline generator with support for powerline symbols and vim/airline/lightline statusline integration
-Plugin 'edkolev/tmuxline.vim'
+"Plugin 'edkolev/tmuxline.vim'
 "Color Scheme
 Plugin 'guns/jellyx.vim'
+"A vim plugin that simplifies the transition between multiline and single-line code
+Plugin 'AndrewRadev/splitjoin.vim'
+"A simple, easy-to-use Vim alignment plugin.
+Plugin 'junegunn/vim-easy-align'
+"Slim templates generator for Rails 3 and 4
+Plugin 'slim-template/slim-rails'
+
+Plugin 'gosukiwi/vim-atom-dark'
+
+"Plugin to move lines and selections up and down
+Plugin 'matze/vim-move'
+let g:move_key_modifier = 'C'
 
 call vundle#end()
 
 " }}}
 
-set term=screen-256color
+colorscheme jellyx
+"set term=screen-251color
 let mapleader = ","
 syntax enable
-colorscheme jellyx
 set background=dark
 
 " Mappings {{{
+map <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
 
 " Insert mode mappings {{{
 inoremap <C-l> <space>=><space>
@@ -111,8 +124,8 @@ nnoremap <leader>ev :vs $MYVIMRC<CR>
 nnoremap <leader>gs :Gstatus<CR><C-W>15+
 nnoremap <leader>m :NERDTreeToggle<CR>
 "nnoremap <leader>rs :!clear;bundle exec rake<CR>
-"nnoremap <leader>a :Ack 
-nnoremap <leader>d :bd<CR> 
+nnoremap <leader>a :Ack
+nnoremap <leader>d :bd<CR>
 nnoremap <leader>w :w<CR>
 nnoremap <leader><cr> :noh<CR>
 nnoremap <leader>ls :ls<CR>:b

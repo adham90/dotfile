@@ -1,16 +1,11 @@
 set --erase fish_greeting
 
-
-set PATH $HOME/.rbenv/bin $PATH
-set PATH $HOME/.rbenv/shims $PATH
-set PATH $HOME/.rbenv/versions $PATH
-rbenv rehash >/dev/null ^&1
-
 # Path
 set --global --export PATH .                     $PATH
 set --global --export PATH $HOME/bin             $PATH
 set --global --export PATH $HOME/local/bin       $PATH
 set --global --export PATH $HOME/.gem/ruby/*/bin $PATH
+set --global --export PATH $HOME/.rvm/gems/*/bin $PATH
 
 # Libraries
 set --global --export PYTHONPATH $HOME/python/*/lib
@@ -47,10 +42,28 @@ Plugin 'gi'
 Plugin 'peco'
 Plugin 'msg'
 Plugin 'xdg'
-#Plugin 'rbenv'
 
 alias v="vim"
 alias vi="vim ."
 alias code="cd /home/code"
 alias wi="sudo wifi-menu"
 alias w="mux start $0"
+
+## git aliases
+alias l="git log"
+alias a="git add ."
+alias c="git commit"
+alias d="git diff"
+alias s="git status"
+
+## rails aliases
+alias rs="rails server"
+alias rb="bundle"
+alias rc="rails console"
+
+## external monitor setup
+alias xm="xrandr --output VGA1 --auto --left-of LVDS1"
+
+
+## show system info with screenfetch
+alias sf="screenfetch"
