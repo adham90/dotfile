@@ -9,7 +9,7 @@ call vundle#begin()
 
 Plugin 'gmarik/Vundle.vim'
 "TextMate-style snippets for Vim
-Plugin 'msanders/snipmate.vim'
+"Plugin 'msanders/snipmate.vim'
 "This plugin will allow you to run ack from vim, and shows the results in a split window. 
 Plugin 'mileszs/ack.vim'
 "Full path fuzzy file, buffer, mru, tag, ... finder for Vim.
@@ -36,8 +36,6 @@ Plugin 'vim-ruby/vim-ruby'
 Plugin 'tpope/vim-surround'
 "improves HTML & CSS workflow
 Plugin 'mattn/emmet-vim'
-"snippets
-Plugin 'SirVer/ultisnips'
 "A Vim plugin which shows a git diff in the gutter (sign column) and stages/reverts hunks.
 Plugin 'airblade/vim-gitgutter'
 "Vim script for text filtering and alignment
@@ -96,15 +94,26 @@ Plugin 'slim-template/slim-rails'
 
 Plugin 'gosukiwi/vim-atom-dark'
 
+Plugin 'chriskempson/vim-tomorrow-theme'
+
 "Plugin to move lines and selections up and down
 Plugin 'matze/vim-move'
+
+" Track the engine.
+Plugin 'SirVer/ultisnips'
+
+" Snippets are separated from the engine. Add this if you want them:
+Plugin 'honza/vim-snippets'
+
+
 let g:move_key_modifier = 'C'
 
 call vundle#end()
 
 " }}}
 
-colorscheme jellyx
+colorscheme Tomorrow-Night
+"colorscheme jellyx
 "set term=screen-251color
 let mapleader = ","
 syntax enable
