@@ -1,11 +1,29 @@
 let mapleader = ","
 
-let g:ycm_auto_trigger = 0
+"================================
+" neocomplete
+"================================
+let g:acp_enableAtStartup = 0
+let g:neocomplete#enable_at_startup = 1
+let g:neocomplete#enable_camel_case = 1
+let g:neocomplete#enable_smart_case = 1
+let g:neocomplete#max_list = 5
+let g:neocomplete#auto_completion_start_length = 3
+let g:neocomplete#force_overwrite_completefunc = 1
+if !exists('g:neocomplete#keyword_patterns')
+  let g:neocomplete#keyword_patterns = {}
+endif
+let g:neocomplete#keyword_patterns['default'] = '\h\w*'
+autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
+"================================
+
 let g:pymode_rope_lookup_project = 0
 let g:markdown_fenced_languages = ['coffee', 'css', 'erb=eruby', 'javascript', 'js=javascript', 'json=javascript', 'ruby', 'sass', 'xml', 'html'] " Specific configurations
-" Stop NERDTree opening when vim starts
-let g:NERDTreeHijackNetrw=0
-let NERDTreeQuitOnOpen=1
 let g:move_key_modifier = 'C'
 
 set background=dark
@@ -30,7 +48,7 @@ set number
 set shell=/bin/bash
 set showmatch
 set smartcase
-"set smartindent
+set smartindent
 set term=screen-256color
 set ts=2 sts=2 sw=2 expandtab
 set winheight=999
@@ -57,13 +75,65 @@ set shell=zsh
 set laststatus=2
 set relativenumber
 
-" ======== Autocommands ==========
+"========================================
+" Autocommands
+"========================================
 autocmd BufWritePre *.rb :%s/\s\+$//e " auto remove trailing whitespace in ruby files
-".ru files are Ruby.
 au BufRead,BufNewFile *.ru set filetype=ruby
 au BufRead,BufNewFile [vV]agrantfile set filetype=ruby
-" Markdown gets auto textwidth
 au Bufread,BufNewFile *.md set filetype=markdown textwidth=79
 au Bufread,BufNewFile *.markdown set textwidth=79
-" ============================
 au Bufread,BufNewFile *.feature set filetype=cucumber " .feature files are Cucumber.
+"========================================
+
+"========================================
+" BACKUP / TMP FILES
+"========================================
+if isdirectory($HOME . '/.vim/backup') == 0
+	:silent !mkdir -p ~/.vim/backup >/dev/null 2>&1
+endif
+set backupdir-=.
+set backupdir+=.
+set backupdir-=~/
+set backupdir^=~/.vim/backup/
+set backupdir^=./.vim-backup/
+set backup
+if isdirectory($HOME . '/.vim/swap') == 0
+	:silent !mkdir -p ~/.vim/swap >/dev/null 2>&1
+endif
+set directory=./.vim-swap//
+set directory+=~/.vim/swap//
+set directory+=~/tmp//
+set directory+=.
+"========================================
+
+"========================================
+" stores the state of previous session
+"========================================
+set viminfo+=n~/.vim/viminfo
+if exists("+undofile")
+	if isdirectory($HOME . '/.vim/undo') == 0
+		:silent !mkdir -p ~/.vim/undo > /dev/null 2>&1
+	endif
+	set undodir=./.vim-undo//
+	set undodir+=~/.vim/undo//
+	set undofile
+endif
+"========================================
+
+
+" Tab completion
+" will insert tab at beginning of line,
+" will use completion if not at beginning
+set wildmode=list:longest,list:full
+function! InsertTabWrapper()
+    let col = col('.') - 1
+    if !col || getline('.')[col - 1] !~ '\k'
+        return "\<tab>"
+    else
+        return "\<c-p>"
+    endif
+endfunction
+inoremap <Tab> <c-r>=InsertTabWrapper()<cr>
+inoremap <S-Tab> <c-n>
+

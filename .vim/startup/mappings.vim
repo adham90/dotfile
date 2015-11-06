@@ -1,9 +1,18 @@
 map <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
 
-no <down> <Nop>
-no <left> <Nop>
-no <right> <Nop>
-no <up> <Nop>
+" Buffer switching
+map <leader>p :bp<CR> " \p previous buffer
+map <leader>n :bn<CR> " \n next buffer
+map <leader>d :bd<CR> " \d delete buffer
+
+inoremap  <Up>     <NOP>
+inoremap  <Down>   <NOP>
+inoremap  <Left>   <NOP>
+inoremap  <Right>  <NOP>
+noremap   <Up>     <NOP>
+noremap   <Down>   <NOP>
+noremap   <Left>   <NOP>
+noremap   <Right>  <NOP>
 
 "======== Insert mode mappings =========
 imap <C-l> <space>=><space>
@@ -18,7 +27,7 @@ nmap <C-n> :noh<CR> "turn off search highlighting
 nmap <C-s> :w<CR>
 nmap <leader>ev :vs $MYVIMRC<CR>
 nmap <leader>gs :Gstatus<CR><C-W>15+
-nmap <leader>m :NERDTreeToggle<CR>
+nmap <leader>m :VimFiler<CR>
 nmap <leader>a :Ack
 nmap <leader>d :bd<CR>
 nmap <leader>w :w<CR>
@@ -31,6 +40,7 @@ nmap <Leader>s :call RunNearestSpec()<CR>
 nmap <Leader>l :call RunLastSpec()<CR>
 nmap <Leader>rs :call RunAllSpecs()<CR>
 nmap <Leader>a :A<CR>
+nmap <leader><leader> <c-^>
 
 "========= Visual mode mappings ==========
 vmap < <gv

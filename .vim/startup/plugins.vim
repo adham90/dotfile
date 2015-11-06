@@ -1,98 +1,99 @@
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+call plug#begin('~/.vim/plugged')
 
-Plugin 'gmarik/Vundle.vim'
-"TextMate-style snippets for Vim
-"Plugin 'msanders/snipmate.vim'
-"This plugin will allow you to run ack from vim, and shows the results in a split window.
-Plugin 'mileszs/ack.vim'
-"Full path fuzzy file, buffer, mru, tag, ... finder for Vim.
-Plugin 'kien/ctrlp.vim'
-"Ruby on Rails power tools
-Plugin 'tpope/vim-rails'
-"it's like rails.vim without the rails
-Plugin 'tpope/vim-rake'
-"A tree explorer plugin for vim.
-Plugin 'scrooloose/nerdtree'
-"CoffeeScript support for vim
-Plugin 'kchmck/vim-coffee-script'
-"Git wrapper
-Plugin 'tpope/vim-fugitive'
+"===== search ======
+Plug 'mileszs/ack.vim'
+Plug 'kien/ctrlp.vim'
+Plug 'tpope/vim-abolish'
+Plug 'Shougo/vimfiler.vim'
+
+
+"===== Git =========
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
+Plug 'mattn/Gist-vim'
+Plug 'gregsexton/gitv'
+Plug 'tpope/vim-git'
+
+"===== Ruby ========
+Plug 'tpope/vim-rails'
+Plug 'vim-ruby/vim-ruby'
+Plug 'tpope/vim-rake'
+Plug 'tpope/vim-endwise'
+Plug 'bruno-/vim-ruby-fold'
+Plug 't9md/vim-ruby-xmpfilter'
+Plug 'tpope/vim-bundler'
+Plug 'sunaku/vim-ruby-minitest'
+Plug 'nelstrom/vim-textobj-rubyblock'
+Plug 'slim-template/slim-rails'
+Plug 'kana/vim-vspec'
+Plug 'thoughtbot/vim-rspec'
+Plug 'rhysd/vim-vspec-matchers'
+Plug 'rubycomplete.vim'
+
+Plug 'kchmck/vim-coffee-script'
 "dark colour scheme for Vim & gVim
-Plugin 'w0ng/vim-hybrid'
+Plug 'w0ng/vim-hybrid'
 "Vim Markdown runtime files
-Plugin 'tpope/vim-markdown'
+Plug 'tpope/vim-markdown'
 "This plugin started out as a set of personal mappings
-Plugin 'tpope/vim-ragtag'
-"Vim configuration files for editing and compiling Ruby within Vim.
-Plugin 'vim-ruby/vim-ruby'
+Plug 'tpope/vim-ragtag'
 "Is all about surroundings: parentheses, brackets, quotes, XML tags, and more.
-Plugin 'tpope/vim-surround'
+Plug 'tpope/vim-surround'
 "improves HTML & CSS workflow
-Plugin 'mattn/emmet-vim'
-"A Vim plugin which shows a git diff in the gutter (sign column) and stages/reverts hunks.
-"Plugin 'airblade/vim-gitgutter'
+Plug 'mattn/emmet-vim'
 "Vim script for text filtering and alignment
-Plugin 'godlygeek/tabular'
-"A code-completion engine for Vim
-Plugin 'Valloric/YouCompleteMe'
-"add 'end' in ruby, endfunction/endif/more in vim script, etc
-Plugin 'tpope/vim-endwise'
-"Run Rspec specs from Vim
-Bundle 'thoughtbot/vim-rspec'
+Plug 'godlygeek/tabular'
 "Send command from vim to a running tmux session
-Bundle 'jgdavey/tslime.vim'
+Plug 'jgdavey/tslime.vim'
 "Vim runtime files for Haml, Sass, and SCSS
-Plugin 'tpope/vim-haml'
-"Perform all your vim insert mode completions with Tab
-Plugin 'ervandew/supertab'
+Plug 'tpope/vim-haml'
 "plugin for intensely orgasmic commenting
-Plugin 'The-NERD-Commenter'
+Plug 'The-NERD-Commenter'
 "Fold markdown documents by section.
-Plugin 'nelstrom/vim-markdown-folding'
-"simple folding for ruby and rspec files
-Plugin 'bruno-/vim-ruby-fold'
+Plug 'nelstrom/vim-markdown-folding'
 "extended % matching for HTML, LaTeX, and many other languages
-Plugin 'matchit.zip'
-"Plugin 'scrooloose/nerdcommenter'
+Plug 'matchit.zip'
 "plugin to display the indention levels with thin vertical lines
-Plugin 'Yggdroot/indentLine'
-"helper for ruby's xmpfilter or seeing_is_believing
-Plugin 't9md/vim-ruby-xmpfilter'
-"Lightweight support for Ruby's Bundler
-Plugin 'tpope/vim-bundler'
+Plug 'Yggdroot/indentLine'
 "Syntax highlighting for VIM
-Plugin 'slim-template/vim-slim'
-"Vim highlighting & completion for MiniTest.
-Plugin 'sunaku/vim-ruby-minitest'
-"testing framework for Vim script.
-Plugin 'kana/vim-vspec'
-"custom matchers for vim-vspec, a testing framework for Vim
-Plugin 'rhysd/vim-vspec-matchers'
+Plug 'slim-template/vim-slim'
 "Create your own text objects
-Plugin 'kana/vim-textobj-user'
-"A custom text object for selecting ruby blocks.
-Plugin 'nelstrom/vim-textobj-rubyblock'
+Plug 'kana/vim-textobj-user'
 "A light and configurable statusline/tabline for Vim
-Plugin 'itchyny/lightline.vim'
-"Simple tmux statusline generator with support for powerline symbols and vim/airline/lightline statusline integration
-"Plugin 'edkolev/tmuxline.vim'
+Plug 'itchyny/lightline.vim'
 "A vim plugin that simplifies the transition between multiline and single-line code
-Plugin 'AndrewRadev/splitjoin.vim'
+Plug 'AndrewRadev/splitjoin.vim'
 "A simple, easy-to-use Vim alignment plugin.
-Plugin 'junegunn/vim-easy-align'
-"Slim templates generator for Rails 3 and 4
-Plugin 'slim-template/slim-rails'
-"Plugin to move lines and selections up and down
-Plugin 'matze/vim-move'
-" Track the engine.
-Plugin 'SirVer/ultisnips'
-" Snippets are separated from the engine. Add this if you want them:
-Plugin 'honza/vim-snippets'
+Plug 'junegunn/vim-easy-align'
+"Plug to move lines and selections up and down
+Plug 'matze/vim-move'
+"Delete all vim buffers but the current one.
+Plug 'BufOnly.vim'
 
-"Color Scheme
-Plugin 'guns/jellyx.vim'
-Plugin 'gosukiwi/vim-atom-dark'
-Plugin 'chriskempson/vim-tomorrow-theme'
+Plug 'Shougo/unite.vim'
+Plug 'Shougo/vimshell.vim'
+Plug 'Shougo/vimproc.vim', {
+\ 'build' : {
+\     'windows' : 'tools\\update-dll-mingw',
+\     'cygwin' : 'make -f make_cygwin.mak',
+\     'mac' : 'make',
+\     'linux' : 'make',
+\     'unix' : 'gmake',
+\    },
+\ }
 
-call vundle#end()
+
+"====== ColorScheme ======
+Plug 'guns/jellyx.vim'
+Plug 'gosukiwi/vim-atom-dark'
+Plug 'chriskempson/vim-tomorrow-theme'
+
+"======== AutoComplete =======
+Plug 'Shougo/neocomplete.vim'
+"Plug 'ervandew/supertab'
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+
+call plug#end()
+
+
