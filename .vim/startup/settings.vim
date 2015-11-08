@@ -1,9 +1,62 @@
 let mapleader = ","
-
 "================================
 " neocomplete
 "================================
+let g:acp_enableAtStartup = 0
+let g:neocomplete#enable_at_startup = 1
+let g:neocomplete#enable_camel_case = 1
+let g:neocomplete#enable_smart_case = 1
+
+" Default # of completions is 100, that's crazy.
+let g:neocomplete#max_list = 5
+
+" Set minimum syntax keyword length.
+let g:neocomplete#auto_completion_start_length = 3
+
+" Map standard Ctrl-N completion to Ctrl-Space
+inoremap <C-Space> <C-n>
+
+" This makes sure we use neocomplete completefunc instead of
+" the one in rails.vim, otherwise this plugin will crap out.
+let g:neocomplete#force_overwrite_completefunc = 1
+
+" Define keyword.
+if !exists('g:neocomplete#keyword_patterns')
+  let g:neocomplete#keyword_patterns = {}
+endif
+let g:neocomplete#keyword_patterns['default'] = '\h\w*'
+
+" Enable omni completion.
+autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
+
+" Plugin key-mappings.
+imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+xmap <C-k>     <Plug>(neosnippet_expand_target)
+
+" SuperTab like snippets behavior.
+"imap <expr><TAB>
+" \ pumvisible() ? "\<C-n>" :
+" \ neosnippet#expandable_or_jumpable() ?
+" \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+\ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+
+" For conceal markers.
+if has('conceal')
+  set conceallevel=2 concealcursor=niv
+endif
 "================================
+
+"================================
+" UltiSnips
+"================================
+"========================================
 
 let g:pymode_rope_lookup_project = 0
 let g:markdown_fenced_languages = ['coffee', 'css', 'erb=eruby', 'javascript', 'js=javascript', 'json=javascript', 'ruby', 'sass', 'xml', 'html'] " Specific configurations
@@ -16,18 +69,13 @@ set cursorline
 set encoding=utf-8
 set fileencoding=utf-8
 set gdefault
-set guifont=Inconsolata\ 10.5
-set guioptions-=Be
-set guioptions=aAc
 set list
 set listchars=tab:▸\ ,eol:¬,nbsp:⋅,trail:•
 set noswapfile
-set shell=/bin/bash
 set smartindent
-set paste
+"set paste
 set shell=zsh
 set relativenumber
-"========================================
 set backspace=indent,eol,start   " enable <BS> for everything
 set colorcolumn=80               " visual indicator of column
 set number                       " Show line numbers
@@ -46,6 +94,7 @@ set wildmenu                     " enhanced cmd line completion
 set wildchar=<TAB>               " key for line completion
 set noerrorbells                 " no error sound
 set splitright                   " Split new buffer at right
+set ts=2 sts=2 sw=2 expandtab
 "========================================
 
 "========================================
@@ -58,6 +107,8 @@ set winheight=999
 set winheight=5
 set winminheight=5
 set winwidth=84
+colorscheme Tomorrow-Night
+syntax enable
 "========================================
 
 "========================================
@@ -97,6 +148,8 @@ set statusline+=%=
 set statusline+=c%c
 set statusline+=,l%l
 set statusline+=/%L\
+hi User1 ctermbg=white    ctermfg=black   guibg=#89A1A1 guifg=#002B36
+hi User2 ctermbg=red      ctermfg=white   guibg=#aa0000 guifg=#89a1a1
 "========================================
 
 "========================================

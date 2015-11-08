@@ -6,7 +6,6 @@ Plug 'kien/ctrlp.vim'
 Plug 'tpope/vim-abolish'
 Plug 'Shougo/vimfiler.vim'
 
-
 "===== Git =========
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
@@ -31,22 +30,20 @@ Plug 'rhysd/vim-vspec-matchers'
 Plug 'rubycomplete.vim'
 
 Plug 'kchmck/vim-coffee-script'
-"dark colour scheme for Vim & gVim
-Plug 'w0ng/vim-hybrid'
-"Vim Markdown runtime files
 Plug 'tpope/vim-markdown'
-"This plugin started out as a set of personal mappings
-Plug 'tpope/vim-ragtag'
-"Is all about surroundings: parentheses, brackets, quotes, XML tags, and more.
-Plug 'tpope/vim-surround'
 "improves HTML & CSS workflow
 Plug 'mattn/emmet-vim'
+"Vim runtime files for Haml, Sass, and SCSS
+Plug 'tpope/vim-haml'
+"Syntax highlighting for VIM
+Plug 'slim-template/vim-slim'
+
+"Is all about surroundings: parentheses, brackets, quotes, XML tags, and more.
+Plug 'tpope/vim-surround'
 "Vim script for text filtering and alignment
 Plug 'godlygeek/tabular'
 "Send command from vim to a running tmux session
 Plug 'jgdavey/tslime.vim'
-"Vim runtime files for Haml, Sass, and SCSS
-Plug 'tpope/vim-haml'
 "plugin for intensely orgasmic commenting
 Plug 'The-NERD-Commenter'
 "Fold markdown documents by section.
@@ -55,8 +52,6 @@ Plug 'nelstrom/vim-markdown-folding'
 Plug 'matchit.zip'
 "plugin to display the indention levels with thin vertical lines
 Plug 'Yggdroot/indentLine'
-"Syntax highlighting for VIM
-Plug 'slim-template/vim-slim'
 "Create your own text objects
 Plug 'kana/vim-textobj-user'
 "A light and configurable statusline/tabline for Vim
@@ -82,7 +77,6 @@ Plug 'Shougo/vimproc.vim', {
 \    },
 \ }
 
-
 "====== ColorScheme ======
 Plug 'guns/jellyx.vim'
 Plug 'gosukiwi/vim-atom-dark'
@@ -91,9 +85,9 @@ Plug 'chriskempson/vim-tomorrow-theme'
 "======== AutoComplete =======
 Plug 'Shougo/neocomplete.vim'
 "Plug 'ervandew/supertab'
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
+"Plug 'SirVer/ultisnips'
+"Plug 'honza/vim-snippets'
+Plug 'Shougo/neosnippet'
+Plug 'Shougo/neosnippet-snippets'
 
 call plug#end()
-
-
