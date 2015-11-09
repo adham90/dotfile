@@ -2,61 +2,15 @@ let mapleader = ","
 "================================
 " neocomplete
 "================================
-let g:acp_enableAtStartup = 0
-let g:neocomplete#enable_at_startup = 1
-let g:neocomplete#enable_camel_case = 1
+let g:neocomplete#enable_at_startup = 1 
+let g:neocomplete#enable_auto_delimiter = 1
+let g:neocomplete#enable_auto_close_preview = 1
 let g:neocomplete#enable_smart_case = 1
+let g:neocomplete#enable_auto_select = 1
 
-" Default # of completions is 100, that's crazy.
-let g:neocomplete#max_list = 5
-
-" Set minimum syntax keyword length.
-let g:neocomplete#auto_completion_start_length = 3
-
-" Map standard Ctrl-N completion to Ctrl-Space
-inoremap <C-Space> <C-n>
-
-" This makes sure we use neocomplete completefunc instead of
-" the one in rails.vim, otherwise this plugin will crap out.
-let g:neocomplete#force_overwrite_completefunc = 1
-
-" Define keyword.
-if !exists('g:neocomplete#keyword_patterns')
-  let g:neocomplete#keyword_patterns = {}
-endif
-let g:neocomplete#keyword_patterns['default'] = '\h\w*'
-
-" Enable omni completion.
-autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
-
-" Plugin key-mappings.
-imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-smap <C-k>     <Plug>(neosnippet_expand_or_jump)
-xmap <C-k>     <Plug>(neosnippet_expand_target)
-
-" SuperTab like snippets behavior.
-"imap <expr><TAB>
-" \ pumvisible() ? "\<C-n>" :
-" \ neosnippet#expandable_or_jumpable() ?
-" \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-\ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-
-" For conceal markers.
-if has('conceal')
-  set conceallevel=2 concealcursor=niv
-endif
+imap <expr><silent><tab> neocomplete#mappings#close_popup() .
+      \ "<Plug>(neosnippet_jump_or_expand)"
 "================================
-
-"================================
-" UltiSnips
-"================================
-"========================================
 
 let g:pymode_rope_lookup_project = 0
 let g:markdown_fenced_languages = ['coffee', 'css', 'erb=eruby', 'javascript', 'js=javascript', 'json=javascript', 'ruby', 'sass', 'xml', 'html'] " Specific configurations
@@ -73,7 +27,6 @@ set list
 set listchars=tab:▸\ ,eol:¬,nbsp:⋅,trail:•
 set noswapfile
 set smartindent
-"set paste
 set shell=zsh
 set relativenumber
 set backspace=indent,eol,start   " enable <BS> for everything
