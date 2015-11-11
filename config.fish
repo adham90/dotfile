@@ -44,6 +44,7 @@ Plugin 'msg'
 Plugin 'xdg'
 
 alias v="vim"
+alias vrc="vim ~/.vimrc ~/.vim/startup"
 alias vi="vim ."
 alias code="cd /home/code"
 alias wi="sudo wifi-menu"

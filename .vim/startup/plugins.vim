@@ -65,6 +65,8 @@ Plug 'matze/vim-move'
 "Delete all vim buffers but the current one.
 Plug 'BufOnly.vim'
 
+Plug 'scrooloose/syntastic'
+
 Plug 'Shougo/unite.vim'
 Plug 'Shougo/vimshell.vim'
 Plug 'Shougo/vimproc.vim', {
@@ -84,10 +86,8 @@ Plug 'chriskempson/vim-tomorrow-theme'
 
 "======== AutoComplete =======
 Plug 'Shougo/neocomplete.vim'
-"Plug 'ervandew/supertab'
-"Plug 'SirVer/ultisnips'
-"Plug 'honza/vim-snippets'
-Plug 'Shougo/neosnippet'
-Plug 'Shougo/neosnippet-snippets'
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+Plug 'https://github.com/jordwalke/VimCompleteLikeAModernEditor.git'
 
 call plug#end()

@@ -1,0 +1,16 @@
+[user]
+  email = adham.eldeeb90@gmail.com
+  name = adham90
+[push]
+  default = simple
+[color]
+  ui = true
+[alias]
+  st = status
+  co = checkout
+  br = branch
+  up = rebase
+  ci = commit
+  lol = log --graph --all --decorate --oneline
+  cf = diff --name-only --diff-filter=U
+  cm = !git add -A && git commit

@@ -2,15 +2,30 @@ let mapleader = ","
 "================================
 " neocomplete
 "================================
-let g:neocomplete#enable_at_startup = 1 
+let g:neocomplete#enable_at_startup = 1
 let g:neocomplete#enable_auto_delimiter = 1
 let g:neocomplete#enable_auto_close_preview = 1
 let g:neocomplete#enable_smart_case = 1
 let g:neocomplete#enable_auto_select = 1
-
-imap <expr><silent><tab> neocomplete#mappings#close_popup() .
-      \ "<Plug>(neosnippet_jump_or_expand)"
+let g:neocomplete#max_list = 20
+let g:neocomplete#manual_completion_start_length = 2
+let g:neocomplete#enable_fuzzy_completion = 1
 "================================
+
+"================================
+" syntastic
+"================================
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+"================================
+
+" open vimfiler by default
+let g:vimfiler_as_default_explorer = 1
 
 let g:pymode_rope_lookup_project = 0
 let g:markdown_fenced_languages = ['coffee', 'css', 'erb=eruby', 'javascript', 'js=javascript', 'json=javascript', 'ruby', 'sass', 'xml', 'html'] " Specific configurations
@@ -162,4 +177,3 @@ augroup line_return
         \ endif
 	augroup END
 "========================================
-

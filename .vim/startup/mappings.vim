@@ -23,11 +23,11 @@ imap <leader>( ()<ESC>i
 imap <leader>[ []<ESC>i
 
 "======== Normal mode mappings ==========
-nmap <C-n> :noh<CR> "turn off search highlighting
+nmap <C-n> :noh<CR>
 nmap <C-s> :w<CR>
 nmap <leader>ev :vs $MYVIMRC<CR>
 nmap <leader>gs :Gstatus<CR><C-W>15+
-nmap <leader>m :VimFiler<CR>
+nmap <leader>m :VimFilerExplorer<CR>
 nmap <leader>a :Ack
 nmap <leader>d :bd<CR>
 nmap <leader>w :w<CR>
