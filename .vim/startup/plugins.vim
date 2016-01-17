@@ -2,6 +2,7 @@ call plug#begin('~/.vim/plugged')
 
 "===== search ======
 Plug 'mileszs/ack.vim'
+Plug 'rking/ag.vim'
 Plug 'kien/ctrlp.vim'
 Plug 'tpope/vim-abolish'
 Plug 'Shougo/vimfiler.vim'
@@ -44,8 +45,8 @@ Plug 'tpope/vim-surround'
 Plug 'godlygeek/tabular'
 "Send command from vim to a running tmux session
 Plug 'jgdavey/tslime.vim'
-"plugin for intensely orgasmic commenting
-Plug 'The-NERD-Commenter'
+"plugin for commenting
+Plug 'tpope/vim-commentary'
 "Fold markdown documents by section.
 Plug 'nelstrom/vim-markdown-folding'
 "extended % matching for HTML, LaTeX, and many other languages
@@ -64,11 +65,17 @@ Plug 'junegunn/vim-easy-align'
 Plug 'matze/vim-move'
 "Delete all vim buffers but the current one.
 Plug 'BufOnly.vim'
+Plug 'vim-auto-save'
 
 Plug 'scrooloose/syntastic'
+Plug 'szw/vim-ctrlspace'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'mattn/webapi-vim'
 
 Plug 'Shougo/unite.vim'
 Plug 'Shougo/vimshell.vim'
+
+
 Plug 'Shougo/vimproc.vim', {
 \ 'build' : {
 \     'windows' : 'tools\\update-dll-mingw',
@@ -89,5 +96,8 @@ Plug 'Shougo/neocomplete.vim'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'https://github.com/jordwalke/VimCompleteLikeAModernEditor.git'
+"======= elixir =============
+Plug 'elixir-lang/vim-elixir'
+Plug 'avdgaag/vim-phoenix'
 
 call plug#end()

@@ -8,7 +8,7 @@ let g:neocomplete#enable_auto_close_preview = 1
 let g:neocomplete#enable_smart_case = 1
 let g:neocomplete#enable_auto_select = 1
 let g:neocomplete#max_list = 20
-let g:neocomplete#manual_completion_start_length = 2
+let g:neocomplete#manual_completion_start_length = 1
 let g:neocomplete#enable_fuzzy_completion = 1
 "================================
 
@@ -21,7 +21,8 @@ set statusline+=%*
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
+let g:syntastic_check_on_wq = 1
+let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute \"ng-"]
 "================================
 
 " open vimfiler by default
@@ -30,7 +31,10 @@ let g:vimfiler_as_default_explorer = 1
 let g:pymode_rope_lookup_project = 0
 let g:markdown_fenced_languages = ['coffee', 'css', 'erb=eruby', 'javascript', 'js=javascript', 'json=javascript', 'ruby', 'sass', 'xml', 'html'] " Specific configurations
 let g:move_key_modifier = 'C'
-
+let g:gist_clip_command = 'xclip -selection clipboard'
+let g:gist_use_password_in_gitconfig = 1
+let g:gist_detect_filetype = 1
+let g:gist_open_browser_after_post = 1
 "========================================
 " General
 "========================================
@@ -50,7 +54,7 @@ set number                       " Show line numbers
 set hidden                       " hide when switching buffers, don't unload
 set laststatus=2                 " always show status line
 set lazyredraw                   " don't update screen when executing macros
-set mouse=a                      " enable mouse in all modes
+" set mouse=a                      " enable mouse in all modes
 set nowrap                       " disable word wrap
 set showbreak="+++ "             " String to show with wrap lines
 set showcmd                      " show command on last line of screen
@@ -98,6 +102,10 @@ set ignorecase          " case insensitive searching
 set smartcase           " override ignorecase if upper case typed
 set more                " Stop in list
 "========================================
+
+" auto save
+let g:auto_save = 0
+let g:auto_save_in_insert_mode = 0
 
 "========================================
 " StatusLine

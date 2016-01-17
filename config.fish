@@ -44,11 +44,11 @@ Plugin 'msg'
 Plugin 'xdg'
 
 alias v="vim"
-alias vrc="vim ~/.vimrc ~/.vim/startup"
+alias vrc="~/.vimrc"
 alias vi="vim ."
 alias code="cd /home/code"
 alias wi="sudo wifi-menu"
-alias w="mux start $0"
+alias tm="mux start $0"
 
 ## git aliases
 alias l="git log"
