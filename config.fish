@@ -1,70 +1,41 @@
-set --erase fish_greeting
+# Put system-wide fish configuration entries here
+# or in .fish files in conf.d/
+# Files in conf.d can be overridden by the user
+# by files with the same name in $XDG_CONFIG_HOME/fish/conf.d
 
-# Path
-set --global --export PATH .                     $PATH
-set --global --export PATH $HOME/bin             $PATH
-set --global --export PATH $HOME/local/bin       $PATH
-set --global --export PATH $HOME/.gem/ruby/*/bin $PATH
-set --global --export PATH $HOME/.rvm/gems/*/bin $PATH
+# This file is run by all fish instances.
+# To include configuration only for login shells, use
+# if status --is-login
+#    ...
+# end
+# To include configuration only for interactive shells, use
+# if status --is-interactive
+#   ...
+# end
 
-# Libraries
-set --global --export PYTHONPATH $HOME/python/*/lib
-set --global --export RUBYLIB    $HOME/ruby/*/lib
+# set -x GOPATH ~/work/goworkspace
+set -x GOPATH $HOME/work/goworkspace
+set -x PATH $PATH /usr/lib/go/bin $GOPATHS/bin /usr/local/bin ~/.npm-global/bin
+alias tmux "tmux -2"
+alias popcorn "cd ~/Downloads/popcorn-desktop/; gulp run"
+alias ssh-testing "ssh ubuntu@testing.eventtus.com"
+alias v "nvim"
+alias so "source ~/.config/fish/config.fish"
 
-# Path to your oh-my-fish.
-set fish_path $HOME/.oh-my-fish
+# eventtus
+alias eventtus "cd ~/work/eventtus"
+alias core "cd ~/work/eventtus/core/"
+alias manager "cd ~/work/eventtus/manager"
+alias admin "cd ~/work/eventtus/admin"
 
-# Path to your custom folder (default path is ~/.oh-my-fish/custom)
-#set fish_custom $HOME/dotfiles/oh-my-fish
+function fco -d "Fuzzy-find and checkout a branch"
+  git branch --all | grep -v HEAD | string trim | fzf | xargs git checkout --track
+end
 
-# Load oh-my-fish configuration.
-. $fish_path/oh-my-fish.fish
+function fcoc -d "Fuzzy-find and checkout a commit"
+  git log --pretty=oneline --abbrev-commit --reverse | fzf +s | xargs git checkout
+end
 
-set -x EDITOR vim
-
-# Custom plugins and themes may be added to ~/.oh-my-fish/custom
-# Plugins and themes can be found at https://github.com/oh-my-fish/
-Theme 'l'
-Plugin 'theme'
-Plugin 'git-flow'
-Plugin 'rails'
-Plugin 'ssh'
-Plugin 'sublime'
-Plugin 'gem'
-Plugin 'fry'
-Plugin 'fish-spec'
-Plugin 'ccache'
-Plugin 'archlinux'
-Plugin 'jump'
-Plugin 'tiny'
-Plugin 'extract'
-Plugin 'gi'
-Plugin 'peco'
-Plugin 'msg'
-Plugin 'xdg'
-
-alias v="vim"
-alias vrc="~/.vimrc"
-alias vi="vim ."
-alias code="cd /home/code"
-alias wi="sudo wifi-menu"
-alias tm="mux start $0"
-
-## git aliases
-alias l="git log"
-alias a="git add ."
-alias c="git commit"
-alias d="git diff"
-alias s="git status"
-
-## rails aliases
-alias rs="rails server"
-alias rb="bundle"
-alias rc="rails console"
-
-## external monitor setup
-alias xm="xrandr --output VGA1 --auto --left-of LVDS1"
-
-
-## show system info with screenfetch
-alias sf="screenfetch"
+# function fssh -d "Fuzzy-find ssh host and ssh into it"
+#   ag '^host [^*]' ~/.ssh/config | cut -d ' ' -f 2 | fzf | xargs ssh -t -t
+# end
